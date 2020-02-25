@@ -18,38 +18,14 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Weather and News </title>
-  </head>
-  <body>
 
     <div class="container mt-5">
-      <h1>Weather and News in <%= @city %> </h1>
-      <div class="container mt-5">
-
-        <div class = "row-sm">
-
-      <h3> Current Forecast </h3>
-
-        </div>
-
-      <h5> Right now it is <%= @current_temperature %> degrees with <%= @conditions.downcase %> in <%= @city %>.</h5>
+      <h1>What's the weather like in ...</h1>
+      <form action="/news">
+        <input type="text" name="q">
+        <button type="submit">Search</submit>
+      </form>
     </div>
-    
-      
-
-    <h3> "Next Week's Forecast" </h3>
-
-    <div class = "row">
-     <div class="col-sm-6 ">
-    <% for temp  in @future_temp
-         for condition in @future_condition %>
-                <p> The high temperature will be <%= temp %> degrees. <%= condition %> </p> 
-               <% end
-         end %>
-            </div>
-   
-    </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
