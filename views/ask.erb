@@ -37,18 +37,32 @@
     
       
 
-    <h3> "Next Week's Forecast" </h3>
+    <h3> Future Forecast </h3>
 
     <div class = "row">
-     <div class="col-sm-6 ">
-    <% for temp  in @future_temp
-         for condition in @future_condition %>
-                <p> The high temperature will be <%= temp %> degrees. <%= condition %> </p> 
-               <% end
-         end %>
-            </div>
-   
+
+    <% for day in @forecast["daily"]["data"] %>
+    <p> The high temperature will be <%=day["temperatureHigh"]%> degrees. The low temperature will be <%=day["temperatureLow"]%> degrees. There will be <%=day["summary"].downcase%> </p> 
+
+   <%end%>
+
+   <div class = "row-sm">
+
+      <h3> Top US Headlines </h3>
+
     </div>
+    <% for story in @news["articles"] %>
+    <<h5> <%= story["title"] %> </h5>
+    
+    <div>
+    <p>
+    <a href= <%= story["url"] %>>Link</a>
+    </p>
+    </div>
+
+   <%end%>
+
+
 
 
     <!-- Optional JavaScript -->

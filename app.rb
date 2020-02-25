@@ -30,15 +30,24 @@ get "/news" do
     @conditions = @forecast["currently"]["summary"]
 
 #get future forecast 
-temp_array = []
-condition_array = []
-    for day in @forecast["daily"]["data"]
-    temp_array << "#{day["temperatureHigh"]}" 
-    condition_array << "#{day["summary"]}" 
-    end
-@future_temp = temp_array[0..6]
-@future_condition = condition_array[0..6]
+# temp_array = []
+# condition_array = []
+# low_temp_array = []
+# day_of_week = [0,1,2,3,4,5,6]
+#     for day in @forecast["daily"]["data"]
+#     temp_array << "#{day["temperatureHigh"]}" 
+#     condition_array << "#{day["summary"]}" 
+#     low_temp_array << "#{day["temperatureLow"]}" 
+#     end
+# @future_temp = temp_array[0..6]
+# @future_condition = condition_array[0..6]
+# @future_low_temp = low_temp_array[0..6]
 
 
-     view "ask"
+@url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9626f0bdeeac4f4a8999fe2a436b864c"
+@news = HTTParty.get(@url).parsed_response.to_hash
+# @less_news = news.slice(0, 9)
+# news is now a Hash you can pretty print (pp) and parse for your output
+    
+    view "ask"
 end
