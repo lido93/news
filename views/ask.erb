@@ -23,45 +23,29 @@
   <body>
 
     <div class="container mt-5">
-      <h1>Weather and News in <%= @city %> </h1>
-      <div class="container mt-5">
+    <h1>Weather in <%= @city.capitalize %> and Top US News  </h1>
+    </div>
 
-        <div class = "row-sm">
-
-      <h3> Current Forecast </h3>
-
-        </div>
-
-      <h5> Right now it is <%= @current_temperature %> degrees with <%= @conditions.downcase %> in <%= @city %>.</h5>
+    <div class="container mt-5">
+    <h3> Current Forecast </h3>
+    <p> Right now it is <%= @current_temperature %> degrees with <%= @conditions.downcase %> in <%= @city.capitalize %>.<p>
     </div>
     
       
-
+  <div class="container mt-5">
     <h3> Future Forecast </h3>
-
-    <div class = "row">
-
     <% for day in @forecast["daily"]["data"] %>
     <p> The high temperature will be <%=day["temperatureHigh"]%> degrees. The low temperature will be <%=day["temperatureLow"]%> degrees. There will be <%=day["summary"].downcase%> </p> 
-
    <%end%>
-
-   <div class = "row-sm">
-
-      <h3> Top US Headlines </h3>
-
     </div>
+   
+    <div class = "container mt-5">
+    <h3> Top US Headlines </h3>
     <% for story in @news["articles"] %>
-    <<h5> <%= story["title"] %> </h5>
-    
-    <div>
-    <p>
-    <a href= <%= story["url"] %>>Link</a>
-    </p>
+    <h7> <%= story["title"] %> </h7>
+    <p> <a href= <%= story["url"] %>>Link to story</a> </p>
+    <%end%>
     </div>
-
-   <%end%>
-
 
 
 
