@@ -23,7 +23,7 @@
   <body>
 
     <div class="container mt-5">
-<img src= "https://www.farmersalmanac.com/wp-content/uploads/2020/02/Different-Weather-Types-1024x379.jpeg">
+<img src= "https://www.farmersalmanac.com/wp-content/uploads/2020/02/Different-Weather-Types-1024x379.jpeg" >
 </div>    
 <div class="container mt-5">
     
@@ -44,6 +44,7 @@
 <!--    <p> The high temperature will be <%=day["temperatureHigh"]%> degrees. The low temperature will be <%=day["temperatureLow"]%> degrees. There will be <%=day["summary"].downcase%> </p> -->
 <!--    <%end%>-->
     </div>
+    
     <div class="container">
         <table class="table table-hover">
             <thead class="thead-dark">
@@ -51,60 +52,27 @@
                 <!-- <th scope="col"></th> -->
                 <th scope="col" class=text-center>High Temperature (F) </th>
                 <th scope="col" class=text-center>Low Temperature (F)</th>
-                <th scope="col" class=text-center>Condition</th>
+                <th scope="col" class=text-center>Conditions</th>
               </tr>
             </thead>
+            <% for day in @day_of_week %>
             <tbody>
               <tr>
                 <!-- <th scope="row">1</th> -->
-                <td class= text-center> <%= @future_temp[0]%> </td class= text-center>
-                <td class= text-center><%= @future_low_temp[0]%></td>
-                <td class= text-center><%= @future_condition[0]%> </td>
-              </tr>
-              <tr>
-                <!-- <th scope="row">2</th> -->
-                <td class= text-center><%= @future_temp[1]%></td>
-                <td class= text-center><%= @future_low_temp[1]%> </td>
-                <td class= text-center><%= @future_condition[1]%> </td>
-              </tr>
-              <tr>
-                <!-- <th scope="row">3</th> -->
-                <td class= text-center><%= @future_temp[2]%></td>
-                <td class= text-center><%= @future_low_temp[2]%></td>
-                <td class= text-center><%= @future_condition[2]%> </td>
-              </tr>
-                <tr>
-                <!-- <th scope="row">4</th> -->
-                <td class= text-center><%= @future_temp[3]%></td>
-                <td class= text-center><%= @future_low_temp[3]%></td>
-                <td class= text-center><%= @future_condition[3]%> </td>
-              </tr>
-                <tr>
-                <!-- <th scope="row">5</th> -->
-                <td class= text-center><%= @future_temp[4]%></td>
-                <td class= text-center><%= @future_low_temp[4]%></td>
-                <td class= text-center><%= @future_condition[4]%> </td>
-              </tr>
-                              <tr>
-                <!-- <th scope="row">6</th> -->
-                <td class= text-center><%= @future_temp[5]%></td>
-                <td class= text-center><%= @future_low_temp[5]%></td>
-                <td class= text-center><%= @future_condition[5]%> </td>
-              </tr>
-                              <tr>
-                <!-- <th scope="row">7</th> -->
-                <td class= text-center><%= @future_temp[6]%></td>
-                <td class= text-center><%= @future_low_temp[6]%></td>
-                <td class= text-center><%= @future_condition[6]%> </td>
+                <td class= text-center> <%= @future_temp[day]%> </td class= text-center>
+                <td class= text-center><%= @future_low_temp[day]%></td>
+                <td class= text-center><%= @future_condition[day]%> </td>
               </tr>
               </tbody>
+                <%end%>
               </table>
+              
    
     <div class = "container mt-5">
     <h3> Top US News Headlines </h3>
    
     <% for story in @news["articles"] %>
-     <div class="card bg-light mb-3">
+     <div class="card border-dark bg-light mb-3">
   <div class="card-body">
     <h7> <%= story["title"] %> </h7>
     <p> <a href= <%= story["url"] %>>Link to story</a> </p>

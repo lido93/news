@@ -33,7 +33,7 @@ get "/news" do
 temp_array = []
 condition_array = []
 low_temp_array = []
-day_of_week = [0,1,2,3,4,5,6]
+@day_of_week = [0,1,2,3,4,5,6]
     for day in @forecast["daily"]["data"]
     temp_array << "#{day["temperatureHigh"]}" 
     condition_array << "#{day["summary"]}" 
@@ -42,6 +42,7 @@ day_of_week = [0,1,2,3,4,5,6]
 @future_temp = temp_array[0..6]
 @future_condition = condition_array[0..6]
 @future_low_temp = low_temp_array[0..6]
+
 
 
 @url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9626f0bdeeac4f4a8999fe2a436b864c"
