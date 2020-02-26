@@ -2,10 +2,16 @@ body {
     background-color: lavender
 }
 h1 {
-    color: blue
+    color:darkslategray;
+    font-family: 'Quicksand'
 }
 
 h3 {
-    color: red;
-    font-style: italic
+    color: midnightblue;
+    font-family: 'Quicksand'
+
+}
+img {
+    width: 1140px;
+    height: 150px
 }
